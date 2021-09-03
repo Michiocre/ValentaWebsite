@@ -35,7 +35,7 @@ app.use("/main.js", function (req, res) {
 });
 
 app.use("/favicon.ico", function (req, res) {
-    res.sendFile(path.join(__dirname + "/public/favicon.ico"));
+    res.sendFile(path.join(__dirname + "/src/favicon.ico"));
 });
 
 app.use("/", function (req, res) {
