@@ -38,12 +38,12 @@ function getData() {
         }
       }
 
-      console.log(values);
-
-      changeData();
-
-      google.charts.load('current', { 'packages': ['corechart'] });
-      google.charts.setOnLoadCallback(drawChart);
+      if (values.length > 0) {
+        changeData();
+  
+        google.charts.load('current', { 'packages': ['corechart'] });
+        google.charts.setOnLoadCallback(drawChart);
+      }
     });
   });
 }
@@ -79,9 +79,11 @@ function drawChart() {
 getData();
 
 function next() {
-  selected = (selected + 1) % (amount - 1);
-  drawChart();
-  changeData();
+  if (values.length > 0) {
+    selected = (selected + 1) % (amount - 1);
+    drawChart();
+    changeData();
+  }
 }
 
 function changeData() {

@@ -23,19 +23,23 @@ app.use("/data.csv", function (req, res) {
 });
 
 app.use("/tailwind.css", function (req, res) {
-    res.sendFile(path.join(__dirname + "/tailwind.css"));
+    res.sendFile(path.join(__dirname + "/public/tailwind.css"));
 });
 
-app.use("/index.js", function (req, res) {
-    res.sendFile(path.join(__dirname + "/src/index.js"));
+app.use("/main.js", function (req, res) {
+    if (process.env.DEV) {
+        res.sendFile(path.join(__dirname + "/src/main.js"));
+    } else {
+        res.sendFile(path.join(__dirname + "/public/main.js"));
+    }
 });
 
 app.use("/favicon.ico", function (req, res) {
-    res.sendFile(path.join(__dirname + "/favicon.ico"));
+    res.sendFile(path.join(__dirname + "/public/favicon.ico"));
 });
 
 app.use("/", function (req, res) {
-    res.sendFile(path.join(__dirname + "/src/index.html"));
+    res.sendFile(path.join(__dirname + "/public/index.html"));
 });
 
 const server = http.createServer(app);
