@@ -88,6 +88,7 @@ function next() {
 
 function changeData() {
   document.getElementById('title').innerText = values[selected].Ord_Name;
+  document.getElementById('title').kunde = values[selected].Kunde;
   document.getElementById('image').src = 'data:image/jpeg;base64,' + values[selected].Bild;
 }
 

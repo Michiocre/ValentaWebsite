@@ -39,7 +39,11 @@ app.use("/favicon.ico", function (req, res) {
 });
 
 app.use("/", function (req, res) {
-    res.sendFile(path.join(__dirname + "/public/index.html"));
+    if (process.env.DEV) {
+        res.sendFile(path.join(__dirname + "/src/index.html"));
+    } else {
+        res.sendFile(path.join(__dirname + "/public/index.html"));
+    }
 });
 
 const server = http.createServer(app);
