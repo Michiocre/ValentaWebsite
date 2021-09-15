@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Auftrags Übersicht</title>
+        <title>Auftrags Auswertung</title>
         <link rel="stylesheet" href="/tailwind.css" />
         <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
         <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
@@ -9,19 +9,40 @@
     </head>
     <body class="bg-gray-900 text-white">
         <div id="wrapper" class="flex h-screen">
-            <div class="m-10 w-full">
-                <h1 id="title" class="text-3xl mb-5">Auftrags Name</h1>
-                <h2 id="kunde" class="text-xl mb-5">Kunde</h2>
+            <div class="flex flex-col m-10 w-full">
+                <h1 class="text-3xl mb-5">Auftrags Auswertung</h1>
+                <h2 id="title" class="text-xl mb-3">Auftrags Name</h2>
+                <h3 id="kunde" class="text-lg mb-2">Kunde</h3>
+                <h3 id="nr" class="text-lg mb-2">Auftrags Nr.</h3>
+                <h3 id="bez" class="text-lg mb-2">Auftrags Bez.</h3>
                 <div class="flex items-center justify-center w-full h-full">
                     <img id="image" src="https://via.placeholder.com/800x400/6B7280/111827" alt="Project Image">
                 </div>
             </div>
-            <div class="my-10 mr-10 p-3 border border-gray-500 border-solid w-1/2 rounded bg-gray-700">
-                <div class="w-full h-2/5">
-
-                </div>
-                <div id="piechart" class="w-full h-3/5"></div>
-
+            <div class="my-10 mr-10 p-3 border border-gray-500 border-solid rounded bg-gray-700 flex flex-col">
+                <div class="flex w-full h-full p-2 space-x-2">
+                  <div class="flex flex-col items-center">
+                    <h1 class="font-semibold mb-3">Gesamtzeit</h1>
+                    <div class="flex w-full">
+                      <div class="w-full text-center">
+                      </div>
+                      <span id="gesamtzeitChange" class="w-full text-center">+50%</span>
+                    </div>
+                    <div class="flex justify-between h-full">
+                      <div class="flex flex-col justify-end items-center">
+                        <div id="gesamtzeit" class="w-6 mx-6 my-2 h-full bg-blue-400">
+                        </div>
+                      </div>
+                      <div class="flex flex-col justify-end items-center">
+                        <div id="gesamtzeitNk" class="w-6 mx-6 my-2 h-full bg-green-400">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="flex w-full justify-between items-center">
+                      <span class="w-full text-center">Graph 1</span>
+                      <span class="w-full text-center">Graph 1 Nk</span>
+                    </div>
+                  </div>
                 </div>
             </div>
         </div>

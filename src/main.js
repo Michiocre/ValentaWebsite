@@ -33,47 +33,15 @@ function getData() {
               value[keys[j]] = splits[j];
             }
           }
-
           values.push(value);
         }
       }
 
       if (values.length > 0) {
         changeData();
-  
-        google.charts.load('current', { 'packages': ['corechart'] });
-        google.charts.setOnLoadCallback(drawChart);
       }
     });
   });
-}
-
-
-
-function drawChart() {
-
-  var data = google.visualization.arrayToDataTable([
-    ['Task', 'Hours per Day'],
-    ['Hours 1 Planned', Number(values[selected].hours_1_planned)],
-    ['Hours 1 Real', Number(values[selected].hours_1_real)],
-    ['Hours 2 Planned', Number(values[selected].hours_2_planned)],
-    ['Hours 2 Real', Number(values[selected].hours_2_real)],
-    ['Hours 3 Planned', Number(values[selected].hours_3_planned)],
-    ['Hours 3 Real', Number(values[selected].hours_3_real)],
-  ]);
-
-  var options = {
-    title: 'My Daily Activities',
-    backgroundColor: 'transparent',
-    legend: 'none',
-    titleTextStyle: {
-      color: 'white'
-    }
-  };
-
-  var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-
-  chart.draw(data, options);
 }
 
 getData();
@@ -81,15 +49,34 @@ getData();
 function next() {
   if (values.length > 0) {
     selected = (selected + 1) % (amount - 1);
-    drawChart();
     changeData();
   }
 }
 
 function changeData() {
-  document.getElementById('title').innerText = values[selected].Ord_Name;
-  document.getElementById('title').kunde = values[selected].Kunde;
-  document.getElementById('image').src = 'data:image/jpeg;base64,' + values[selected].Bild;
+  document.getElementById('title').innerText = values[selected].ORD_NAME;
+  document.getElementById('kunde').innerText = values[selected].KUNDE;
+  document.getElementById('nr').innerText = values[selected].ORD_NR;
+  document.getElementById('image').src = 'data:image/jpeg;base64,' + values[selected].DOV_CONTENT;
+  updateGraph('gesamtzeit', Number(values[selected].GESAMTZEIT), Number(values[selected].GESAMTZEIT) + Number(values[selected].GESAMTZEIT_NK));
 }
 
-setInterval(next, 1*1000);
+function updateGraph(id, time, timeNk) {
+  nkIncrease = timeNk > time;
+
+  let timeMapped, timeNkMapped;
+
+  if (nkIncrease) {
+    timeMapped = (time * 100) / timeNk;
+    timeNkMapped = (timeNk * 100) / timeNk;
+  } else {
+    timeMapped = (time * 100) / time;
+    timeNkMapped = (timeNk * 100) / time;
+  }
+
+  document.getElementById(id).style.height = timeMapped + '%';
+  document.getElementById(id + 'Nk').style.height = timeNkMapped + '%';
+  document.getElementById(id + 'Change').innerText = (nkIncrease ? '+' : '') + Math.round(timeNkMapped - timeMapped) + '%';
+}
+
+setInterval(next, 10*1000);
