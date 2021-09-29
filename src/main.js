@@ -3,7 +3,7 @@ var request = window.XMLHttpRequest
   : new ActiveXObject("Microsoft.XMLHTTP");
 
 let values = [];
-let selected = 0;
+let selected = 2;
 let amount = 0;
 
 function getData() {
@@ -37,6 +37,8 @@ function getData() {
         }
       }
 
+      console.log(values);
+
       if (values.length > 0) {
         changeData();
       }
@@ -48,7 +50,7 @@ getData();
 
 function next() {
   if (values.length > 0) {
-    selected = (selected + 1) % (amount - 1);
+    selected = (selected + 1) % amount;
     changeData();
   }
 }
@@ -58,7 +60,7 @@ function changeData() {
   document.getElementById('kunde').innerText = values[selected].KUNDE;
   document.getElementById('nr').innerText = values[selected].ORD_NR;
   document.getElementById('image').src = 'data:image/jpeg;base64,' + values[selected].DOV_CONTENT;
-  updateGraph('gesamtzeit', Number(values[selected].GESAMTZEIT), Number(values[selected].GESAMTZEIT) + Number(values[selected].GESAMTZEIT_NK));
+  updateGraph('gesamtzeit', Number(values[selected].GESAMTZEIT), Number(values[selected].GESAMTZEIT_NK));
 }
 
 function updateGraph(id, time, timeNk) {
@@ -76,7 +78,7 @@ function updateGraph(id, time, timeNk) {
 
   document.getElementById(id).style.height = timeMapped + '%';
   document.getElementById(id + 'Nk').style.height = timeNkMapped + '%';
-  document.getElementById(id + 'Change').innerText = (nkIncrease ? '+' : '') + Math.round(timeNkMapped - timeMapped) + '%';
+  document.getElementById(id + 'Change').innerText = (nkIncrease ? '+' + Math.round((timeNkMapped * 100) / timeMapped - 100) + '%' : Math.round(timeNkMapped - timeMapped) + '%');
 }
 
 setInterval(next, 10*1000);
