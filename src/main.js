@@ -61,6 +61,13 @@ function changeData() {
   document.getElementById('nr').innerText = values[selected].ORD_NR;
   document.getElementById('image').src = 'data:image/jpeg;base64,' + values[selected].DOV_CONTENT;
   updateGraph('gesamtzeit', Number(values[selected].GESAMTZEIT), Number(values[selected].GESAMTZEIT_NK));
+  updateGraph('sonstiges', Number(values[selected].SONSTIGES), Number(values[selected].SONSTIGES_NK));
+  updateGraph('selbstkosten', Number(values[selected].SELBSTKOSTEN), Number(values[selected].SELBSTKOSTEN_NK));
+  updateGraph('cgs1', Number(values[selected].CGS1NKSUM), Number(values[selected].CGS1VKSUM));
+  updateGraph('cgs2', Number(values[selected].CGS2NKSUM), Number(values[selected].CGS2VKSUM));
+  updateGraph('cgs3', Number(values[selected].CGS3NKSUM), Number(values[selected].CGS3VKSUM));
+  updateGraph('cgs4', Number(values[selected].CGS4NKSUM), Number(values[selected].CGS4VKSUM));
+  updateGraph('cgs5', Number(values[selected].CGS5NKSUM), Number(values[selected].CGS5VKSUM));
 }
 
 function updateGraph(id, time, timeNk) {
@@ -76,8 +83,8 @@ function updateGraph(id, time, timeNk) {
     timeNkMapped = (timeNk * 100) / time;
   }
 
-  document.getElementById(id).style.height = timeMapped + '%';
-  document.getElementById(id + 'Nk').style.height = timeNkMapped + '%';
+  document.getElementById(id + 'VK').style.height = timeMapped + '%';
+  document.getElementById(id + 'NK').style.height = timeNkMapped + '%';
   document.getElementById(id + 'Change').innerText = (nkIncrease ? '+' + Math.round((timeNkMapped * 100) / timeMapped - 100) + '%' : Math.round(timeNkMapped - timeMapped) + '%');
 }
 

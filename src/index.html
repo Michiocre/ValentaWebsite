@@ -19,8 +19,8 @@
                     <img id="image" style="max-height: 70vh;" src="https://via.placeholder.com/1920x1080/6B7280/111827" alt="Project Image">
                 </div>
             </div>
-            <div class="my-10 mr-10 p-3 border border-gray-500 border-solid rounded bg-gray-700 flex flex-col">
-                <div class="flex w-full h-full p-2 space-x-2">
+            <div class="my-10 mr-10 p-3 grid grid-rows-2 grid-cols-4 gap-3 w-full">
+                <div class="flex w-min h-full p-2 space-x-2 border border-gray-500 border-solid rounded bg-gray-700">
                   <div class="flex flex-col items-center">
                     <h1 class="font-semibold mb-3">Gesamtzeit</h1>
                     <div class="flex w-full">
@@ -30,17 +30,185 @@
                     </div>
                     <div class="flex justify-between h-full">
                       <div class="flex flex-col justify-end items-center">
-                        <div id="gesamtzeit" class="w-6 mx-6 my-2 h-full bg-blue-400">
+                        <div id="gesamtzeitVK" class="w-6 mx-6 my-2 h-full bg-blue-400">
                         </div>
                       </div>
                       <div class="flex flex-col justify-end items-center">
-                        <div id="gesamtzeitNk" class="w-6 mx-6 my-2 h-full bg-green-400">
+                        <div id="gesamtzeitNK" class="w-6 mx-6 my-2 h-full bg-green-400">
                         </div>
                       </div>
                     </div>
                     <div class="flex w-full justify-between items-center">
-                      <span class="w-full text-center">Graph 1</span>
-                      <span class="w-full text-center">Graph 1 Nk</span>
+                      <span class="w-full text-center">VK</span>
+                      <span class="w-full text-center">Nk</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex w-min h-full p-2 space-x-2 border border-gray-500 border-solid rounded bg-gray-700">
+                  <div class="flex flex-col items-center">
+                    <h1 class="font-semibold mb-3">Sonstiges</h1>
+                    <div class="flex w-full">
+                      <div class="w-full text-center">
+                      </div>
+                      <span id="sonstigesChange" class="w-full text-center">+50%</span>
+                    </div>
+                    <div class="flex justify-between h-full">
+                      <div class="flex flex-col justify-end items-center">
+                        <div id="sonstigesVK" class="w-6 mx-6 my-2 h-full bg-blue-400">
+                        </div>
+                      </div>
+                      <div class="flex flex-col justify-end items-center">
+                        <div id="sonstigesNK" class="w-6 mx-6 my-2 h-full bg-green-400">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="flex w-full justify-between items-center">
+                      <span class="w-full text-center">VK</span>
+                      <span class="w-full text-center">Nk</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex w-min h-full p-2 space-x-2 border border-gray-500 border-solid rounded bg-gray-700">
+                  <div class="flex flex-col items-center">
+                    <h1 class="font-semibold mb-3">Selbstkosten</h1>
+                    <div class="flex w-full">
+                      <div class="w-full text-center">
+                      </div>
+                      <span id="selbstkostenChange" class="w-full text-center">+50%</span>
+                    </div>
+                    <div class="flex justify-between h-full">
+                      <div class="flex flex-col justify-end items-center">
+                        <div id="selbstkostenVK" class="w-6 mx-6 my-2 h-full bg-blue-400">
+                        </div>
+                      </div>
+                      <div class="flex flex-col justify-end items-center">
+                        <div id="selbstkostenNK" class="w-6 mx-6 my-2 h-full bg-green-400">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="flex w-full justify-between items-center">
+                      <span class="w-full text-center">VK</span>
+                      <span class="w-full text-center">Nk</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex w-min h-full p-2 space-x-2 border border-gray-500 border-solid rounded bg-gray-700">
+                  <div class="flex flex-col items-center">
+                    <h1 class="font-semibold mb-3">CGS1</h1>
+                    <div class="flex w-full">
+                      <div class="w-full text-center">
+                      </div>
+                      <span id="cgs1Change" class="w-full text-center">+50%</span>
+                    </div>
+                    <div class="flex justify-between h-full">
+                      <div class="flex flex-col justify-end items-center">
+                        <div id="cgs1VK" class="w-6 mx-6 my-2 h-full bg-blue-400">
+                        </div>
+                      </div>
+                      <div class="flex flex-col justify-end items-center">
+                        <div id="cgs1NK" class="w-6 mx-6 my-2 h-full bg-green-400">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="flex w-full justify-between items-center">
+                      <span class="w-full text-center">VK</span>
+                      <span class="w-full text-center">Nk</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex w-min h-full p-2 space-x-2 border border-gray-500 border-solid rounded bg-gray-700">
+                  <div class="flex flex-col items-center">
+                    <h1 class="font-semibold mb-3">CGS2</h1>
+                    <div class="flex w-full">
+                      <div class="w-full text-center">
+                      </div>
+                      <span id="cgs2Change" class="w-full text-center">+50%</span>
+                    </div>
+                    <div class="flex justify-between h-full">
+                      <div class="flex flex-col justify-end items-center">
+                        <div id="cgs2VK" class="w-6 mx-6 my-2 h-full bg-blue-400">
+                        </div>
+                      </div>
+                      <div class="flex flex-col justify-end items-center">
+                        <div id="cgs2NK" class="w-6 mx-6 my-2 h-full bg-green-400">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="flex w-full justify-between items-center">
+                      <span class="w-full text-center">VK</span>
+                      <span class="w-full text-center">Nk</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex w-min h-full p-2 space-x-2 border border-gray-500 border-solid rounded bg-gray-700">
+                  <div class="flex flex-col items-center">
+                    <h1 class="font-semibold mb-3">CGS3</h1>
+                    <div class="flex w-full">
+                      <div class="w-full text-center">
+                      </div>
+                      <span id="cgs3Change" class="w-full text-center">+50%</span>
+                    </div>
+                    <div class="flex justify-between h-full">
+                      <div class="flex flex-col justify-end items-center">
+                        <div id="cgs3VK" class="w-6 mx-6 my-2 h-full bg-blue-400">
+                        </div>
+                      </div>
+                      <div class="flex flex-col justify-end items-center">
+                        <div id="cgs3NK" class="w-6 mx-6 my-2 h-full bg-green-400">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="flex w-full justify-between items-center">
+                      <span class="w-full text-center">VK</span>
+                      <span class="w-full text-center">Nk</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex w-min h-full p-2 space-x-2 border border-gray-500 border-solid rounded bg-gray-700">
+                  <div class="flex flex-col items-center">
+                    <h1 class="font-semibold mb-3">CGS4</h1>
+                    <div class="flex w-full">
+                      <div class="w-full text-center">
+                      </div>
+                      <span id="cgs4Change" class="w-full text-center">+50%</span>
+                    </div>
+                    <div class="flex justify-between h-full">
+                      <div class="flex flex-col justify-end items-center">
+                        <div id="cgs4VK" class="w-6 mx-6 my-2 h-full bg-blue-400">
+                        </div>
+                      </div>
+                      <div class="flex flex-col justify-end items-center">
+                        <div id="cgs4NK" class="w-6 mx-6 my-2 h-full bg-green-400">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="flex w-full justify-between items-center">
+                      <span class="w-full text-center">VK</span>
+                      <span class="w-full text-center">Nk</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex w-min h-full p-2 space-x-2 border border-gray-500 border-solid rounded bg-gray-700">
+                  <div class="flex flex-col items-center">
+                    <h1 class="font-semibold mb-3">CGS5</h1>
+                    <div class="flex w-full">
+                      <div class="w-full text-center">
+                      </div>
+                      <span id="cgs5Change" class="w-full text-center">+50%</span>
+                    </div>
+                    <div class="flex justify-between h-full">
+                      <div class="flex flex-col justify-end items-center">
+                        <div id="cgs5VK" class="w-6 mx-6 my-2 h-full bg-blue-400">
+                        </div>
+                      </div>
+                      <div class="flex flex-col justify-end items-center">
+                        <div id="cgs5NK" class="w-6 mx-6 my-2 h-full bg-green-400">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="flex w-full justify-between items-center">
+                      <span class="w-full text-center">VK</span>
+                      <span class="w-full text-center">Nk</span>
                     </div>
                   </div>
                 </div>
