@@ -3,7 +3,7 @@ var request = window.XMLHttpRequest
   : new ActiveXObject("Microsoft.XMLHTTP");
 
 let values = [];
-let selected = 2;
+let selected = 0;
 let amount = 0;
 
 function getData() {
@@ -37,8 +37,6 @@ function getData() {
         }
       }
 
-      console.log(values);
-
       if (values.length > 0) {
         changeData();
       }
@@ -50,7 +48,10 @@ getData();
 
 function next() {
   if (values.length > 0) {
-    selected = (selected + 1) % amount;
+    selected++;
+    if (selected >= values.length) {
+      selected = 0;
+    }
     changeData();
   }
 }
@@ -83,8 +84,21 @@ function updateGraph(id, time, timeNk) {
     timeNkMapped = (timeNk * 100) / time;
   }
 
+  timeMapped = Math.round(timeMapped);
+  timeNkMapped = Math.round(timeNkMapped);
+
+  if (isNaN(timeMapped) || isNaN(timeNkMapped)) {
+    document.getElementById(id + 'Wrapper').classList.add('hidden');
+  } else {
+    document.getElementById(id + 'Wrapper').classList.remove('hidden');
+  }
+
+  document.getElementById(id + 'NK').classList.remove('bg-green-400');
+  document.getElementById(id + 'NK').classList.remove('bg-red-400');
+
   document.getElementById(id + 'VK').style.height = timeMapped + '%';
   document.getElementById(id + 'NK').style.height = timeNkMapped + '%';
+  document.getElementById(id + 'NK').classList.add(!nkIncrease ? 'bg-green-400' : 'bg-red-400');
   document.getElementById(id + 'Change').innerText = (nkIncrease ? '+' + Math.round((timeNkMapped * 100) / timeMapped - 100) + '%' : Math.round(timeNkMapped - timeMapped) + '%');
 }
 
