@@ -64,11 +64,11 @@ function changeData() {
   updateGraph('gesamtzeit', Number(values[selected].GESAMTZEIT), Number(values[selected].GESAMTZEIT_NK));
   updateGraph('sonstiges', Number(values[selected].SONSTIGES), Number(values[selected].SONSTIGES_NK));
   updateGraph('selbstkosten', Number(values[selected].SELBSTKOSTEN), Number(values[selected].SELBSTKOSTEN_NK));
-  updateGraph('cgs1', Number(values[selected].CGS1NKSUM), Number(values[selected].CGS1VKSUM));
-  updateGraph('cgs2', Number(values[selected].CGS2NKSUM), Number(values[selected].CGS2VKSUM));
-  updateGraph('cgs3', Number(values[selected].CGS3NKSUM), Number(values[selected].CGS3VKSUM));
-  updateGraph('cgs4', Number(values[selected].CGS4NKSUM), Number(values[selected].CGS4VKSUM));
-  updateGraph('cgs5', Number(values[selected].CGS5NKSUM), Number(values[selected].CGS5VKSUM));
+  updateGraph('cgs1', Number(values[selected].CGS1VKSUM), Number(values[selected].CGS1NKSUM));
+  updateGraph('cgs2', Number(values[selected].CGS2VKSUM), Number(values[selected].CGS2NKSUM));
+  updateGraph('cgs3', Number(values[selected].CGS3VKSUM), Number(values[selected].CGS3NKSUM));
+  updateGraph('cgs4', Number(values[selected].CGS4VKSUM), Number(values[selected].CGS4NKSUM));
+  updateGraph('cgs5', Number(values[selected].CGS5VKSUM), Number(values[selected].CGS5NKSUM));
 }
 
 function updateGraph(id, time, timeNk) {
