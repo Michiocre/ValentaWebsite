@@ -68,7 +68,7 @@ function changeData() {
   updateGraph('cgs2', Number(values[selected].CGS2VKSUM), Number(values[selected].CGS2NKSUM));
   updateGraph('cgs3', Number(values[selected].CGS3VKSUM), Number(values[selected].CGS3NKSUM));
   updateGraph('cgs4', Number(values[selected].CGS4VKSUM), Number(values[selected].CGS4NKSUM));
-  updateGraph('cgs5', Number(values[selected].CGS5VKSUM), Number(values[selected].CGS5NKSUM));
+  //updateGraph('cgs5', Number(values[selected].CGS5VKSUM), Number(values[selected].CGS5NKSUM));
 }
 
 function updateGraph(id, time, timeNk) {
@@ -93,13 +93,21 @@ function updateGraph(id, time, timeNk) {
     document.getElementById(id + 'Wrapper').classList.remove('hidden');
   }
 
+  let percentageIncrease = Math.round((timeNkMapped * 100) / timeMapped - 100);
+  let percentageDecrease = Math.round(timeNkMapped - timeMapped);
+
+  if (percentageIncrease == Infinity) {
+    percentageIncrease = 100;
+  }
+
   document.getElementById(id + 'NK').classList.remove('bg-green-400');
   document.getElementById(id + 'NK').classList.remove('bg-red-400');
 
   document.getElementById(id + 'VK').style.height = timeMapped + '%';
   document.getElementById(id + 'NK').style.height = timeNkMapped + '%';
   document.getElementById(id + 'NK').classList.add(!nkIncrease ? 'bg-green-400' : 'bg-red-400');
-  document.getElementById(id + 'Change').innerText = (nkIncrease ? '+' + Math.round((timeNkMapped * 100) / timeMapped - 100) + '%' : Math.round(timeNkMapped - timeMapped) + '%');
+
+  document.getElementById(id + 'Change').innerText = (nkIncrease ? '+' + percentageIncrease + '%' : percentageDecrease + '%');
 }
 
 setInterval(next, 10*1000);
